@@ -3,7 +3,7 @@
     include("../../conexao.php");
 
     //Declarando as Variveis com os valores do Front
-    $cpf   = $_GET['CPF'];
+    $cpf = $_GET['CPF'];
 
     //Inserindo dados no banco via query
     $query = "DELETE FROM pessoa WHERE $cpf";

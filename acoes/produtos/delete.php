@@ -1,12 +1,22 @@
 <?php
-    //Incluindo Conexao
+    // Incluindo Conexao
     include("../../conexao.php");
 
-    //Declarando as Variveis com os valores do Front
-    $id   = $_GET['IdProduto'];
+    // Declarando as Variáveis com os valores do Front
+    $id  = mysqli_real_escape_string($conn, $_GET['IdProduto']);
 
-    //Inserindo dados no banco via query
-    $query = "DELETE FROM produto WHERE $id";
+    // Inserindo dados no banco via query
+    $query = "DELETE FROM produto WHERE id = '$id'";
     $busca = mysqli_query($conn, $query);
-    header("Location: ../../index.php");
+
+    // Verificando se a query foi executada com sucesso
+    if ($busca) {
+        header("Location: ../../index.php");
+        exit();
+    } else {
+        echo "Erro ao excluir o produto.";
+    }
 ?>
+
+
+

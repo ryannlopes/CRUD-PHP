@@ -63,7 +63,7 @@
         </thead>
         <tbody>
           <tr>
-          <?php
+            <?php
             require('conexao.php');
 
             $query = "SELECT * FROM produto";
@@ -76,7 +76,7 @@
             <td><?php echo $dados['nomeProduto'] ?></td>
             <td><?php echo $dados['pesoProduto'] ?> Kg</td>
             <td>R$ <?php echo $dados['precoProduto'] ?></td>
-            <td><a class="btn btn-warning" href="./acoes/produtos/update.php?CPF=<?php echo $dados['IdProduto']; ?>">EDITAR</a></td>
+            <td><a class="btn btn-warning" href="./editProduto.php?CPF=<?php echo $dados['IdProduto']; ?>">EDITAR</a></td>
             <td><a class='btn btn-danger btn-sn' href="./acoes/produtos/delete.php?IdProduto=<?php echo $dados['IdProduto']; ?>" data-confirm='Tem certeza de que deseja excluir o item selecionado?'>DELETAR</td>
           </tr>
 

@@ -42,34 +42,36 @@
     <?php
       include("conexao.php");
       // Verifica se o CPF foi enviado via GET
-      if (isset($_GET['CPF'])) {
+      if (isset($_GET['IdProduto'])) {
         // Protege contra injeção de SQL
-        $cpf = mysqli_real_escape_string($conn, $_GET['CPF']);
+        $id = mysqli_real_escape_string($conn, $_GET['IdProduto']);
 
-        // Consulta a pessoa com o CPF informado
-        $query = "SELECT * FROM pessoa WHERE CPF = '$cpf'";
+        // Consulta a pessoa com o IdProduto informado
+        $query = "SELECT * FROM produto WHERE IdProduto = '$id'";
         $busca = mysqli_query($conn, $query);
 
         // Verifica se a consulta retornou algum resultado
         if (mysqli_num_rows($busca) > 0) {
           $dados = mysqli_fetch_array($busca);
         } else {
-          echo "Pessoa não encontrada.";
+          echo "Produto não encontrada.";
           exit;
         }
       } else {
-        echo "CPF não informado.";
+        echo "ID não informado.";
         exit;
       }
     ?>
-    <form method="POST" action="./acoes/pessoas/update.php">
+    <form method="POST" action="./acoes/produtos/update.php">
       <h1>EDITAR PESSOA</h1>
       <label for="cpf">CPF:</label>
-      <input type="text" id="cpf" name="cpf" value="<?php echo htmlspecialchars($dados['CPF']) ?>">
+      <input type="text" id="id" name="id" value="<?php echo htmlspecialchars($dados['IdProduto']) ?>">
       <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($dados['nomePessoa']) ?>">
-      <label for="idade">Idade:</label>
-      <input type="number" id="idade" name="idade" value="<?php echo htmlspecialchars($dados['idadePessoa']) ?>">
+      <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($dados['nomeProduto']) ?>">
+      <label for="peso">peso:</label>
+      <input type="number" id="peso" name="peso" value="<?php echo htmlspecialchars($dados['pesoProduto']) ?>">
+      <label for="preco">preço:</label>
+      <input type="number" id="preco" name="preco" value="<?php echo htmlspecialchars($dados['precoProduto']) ?>">
       <button type="submit" class="btn btn-success">Editar</button>
     </form>
   </body>
