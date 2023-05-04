@@ -74,9 +74,9 @@
             ?>
             <td><?php echo $dados['IdProduto'] ?> </td>
             <td><?php echo $dados['nomeProduto'] ?></td>
-            <td><?php echo $dados['pesoProduto'] ?> Kg</td>
+            <td><?php echo $dados['pesoProduto'] ?> g</td>
             <td>R$ <?php echo $dados['precoProduto'] ?></td>
-            <td><a class="btn btn-warning" href="./editProduto.php?CPF=<?php echo $dados['IdProduto']; ?>">EDITAR</a></td>
+            <td><a class="btn btn-warning" href="editProduto.php?IdProduto=<?php echo $dados['IdProduto']; ?>">EDITAR</a></td>
             <td><a class='btn btn-danger btn-sn' href="./acoes/produtos/delete.php?IdProduto=<?php echo $dados['IdProduto']; ?>" data-confirm='Tem certeza de que deseja excluir o item selecionado?'>DELETAR</td>
           </tr>
 

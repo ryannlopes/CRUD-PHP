@@ -3,10 +3,10 @@
 require_once '../../conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $cpf = $_POST['id'];
+    $id = $_POST['id'];
     $nome = $_POST['nome'];
     $peso = $_POST['peso'];
-    $peco = $_POST['peco'];
+    $preco = $_POST['preco'];
 
     // atualiza registro no banco de dados
     $query = "UPDATE produto SET nomeProduto= '$nome', pesoProduto = '$peso', precoProduto = '$preco' WHERE IdProduto = '$id'";
