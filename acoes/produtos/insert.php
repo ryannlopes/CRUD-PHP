@@ -11,5 +11,5 @@
     $query = "INSERT INTO produto(nomeProduto, pesoProduto, precoProduto) 
     VALUE  ('$nome', '$peso', '$preco')";
     $busca = mysqli_query($conn, $query);
-    header("Location: ../../index.php");
+    header("Location: ../../produto.php");
 ?>

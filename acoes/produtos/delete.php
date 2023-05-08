@@ -13,7 +13,7 @@
 
         // Verificando se a query foi executada com sucesso
         if($busca){
-            header("Location: ../../index.php");
+            header("Location: ../../produto.php");
         } else {
             echo "Erro ao deletar registro!";
         }
